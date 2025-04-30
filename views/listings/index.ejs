@@ -1,0 +1,130 @@
+<%- layout("/layouts/boilerplate") -%>
+
+   <!-- <style>
+  
+      #filters {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .filter{
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 0.7;
+      }
+      .filter:hover{
+       opacity: 1;
+       cursor: pointer;
+      }
+    
+   </style>
+    <div id="filters">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+       <p> Trending</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+       <p>Rooms</p>
+      </div>
+      <div id="filters">
+        <div class="filter">
+          <div><i class="fa-solid fa-mountain-city"></i></div>
+         <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-mountain"></i></div>
+         <p>Mountains</p>
+        </div>
+        <div id="filters">
+          <div class="filter">
+            <div><div id="filters">
+              <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+               <p>Beach</p>
+              </div>
+              <div class="filter">
+                <div><i class="fa-solid fa-cow"></i></div>
+               <p>Farms</p>
+              </div><i class="fa-brands fa-fort-awesome"></i></div>
+           <p>Castles</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+           <p>Amazing Pools</p>
+          </div>
+
+    </div> -->
+    <style>
+      #filters {
+        display: flex;
+        flex-wrap: nowrap;  /* Don't wrap to next line */
+        overflow-x: auto;   /* Allow horizontal scroll if too many filters */
+        padding: 1rem;
+        gap: 2rem;           /* Space between filters */
+      }
+    
+      .filter {
+        text-align: center;
+        opacity: 0.7;
+        flex: 0 0 auto;      /* Prevent shrinking */
+      }
+    
+      .filter:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    
+      .filter i {
+        font-size: 1.5rem;   /* Adjust icon size */
+      }
+      .filter p {
+        font-size: 0.8rem;
+      }
+    </style>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <div id="filters">
+      <div class="filter"><i class="fa-solid fa-fire"></i><p>Trending</p></div>
+      <div class="filter"><i class="fa-solid fa-bed"></i><p>Rooms</p></div>
+      <div class="filter"><i class="fa-solid fa-mountain-city"></i><p>Iconic Cities</p></div>
+      <div class="filter"><i class="fa-solid fa-mountain"></i><p>Mountains</p></div>
+      <div class="filter"><i class="fa-solid fa-umbrella-beach"></i><p>Beach</p></div>
+      <div class="filter"><i class="fa-solid fa-cow"></i><p>Farms</p></div>
+      <div class="filter"><i class="fa-brands fa-fort-awesome"></i><p>Castles</p></div>
+      <div class="filter"><i class="fa-solid fa-person-swimming"></i><p>Amazing Pools</p></div>
+      <div class="filter"><i class="fa-solid fa-tree"></i><p>Nature</p></div>
+<div class="filter"><i class="fa-solid fa-snowflake"></i><p>Snow</p></div>
+<div class="filter"><i class="fa-solid fa-campground"></i><p>Camping</p></div>
+<div class="filter"><i class="fa-solid fa-ship"></i><p>Boats</p></div>
+<div class="filter"><i class="fa-solid fa-igloo"></i><p>Igloos</p></div>
+<div class="filter"><i class="fa-solid fa-city"></i><p>Urban</p></div>
+<div class="filter"><i class="fa-solid fa-tree-city"></i><p>Eco-Stays</p></div>
+ <div class="filter"><i class="fa-solid fa-hotel"></i><p>Hotels</p></div>
+<!-- <div class="filter"><i class="fa-solid fa-van-shuttle"></i><p>Vans</p></div>
+<div class="filter"><i class="fa-solid fa-house-chimney"></i><p>Cottages</p></div>  -->
+
+    </div>
+    
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+      <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+        
+      <div class="card col listing-card" >
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image"
+           style="height: 20rem"/>
+      <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+             <b> <%= listing.title %></b> <br/>
+             &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+              </p>
+          </div>
+        </div>
+        </a>
+        <% } %>
+
+    </div>
+
+</body>
