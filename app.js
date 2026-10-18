@@ -202,9 +202,11 @@ app.use((err, req, res, next)=>{
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });*/
+app.get("/",(req,res)=>{
+  res.redirect("/listings");
+});
 
-
-const PORT=process.env.port||
+const PORT=process.env.PORT||
  8080;
 app.listen(PORT,"0.0.0.0",()=> {
     console.log("server is listening on port ${PORT}");
